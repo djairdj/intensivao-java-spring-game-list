@@ -15,9 +15,7 @@ import java.util.List;
 public class GameController {
   private final GameService gameService;
 
-  public GameController(GameService gameService) {
-    this.gameService = gameService;
-  }
+  public GameController(GameService gameService) {    this.gameService = gameService;  }
   @GetMapping(value = "/{id}")
   public GameDTO findById(@PathVariable(value = "id") Long id){
     return gameService.findById(id);
@@ -26,5 +24,4 @@ public class GameController {
   public List<GameMinDTO> getGames(){
     return gameService.findAll();
   }
-
 }
