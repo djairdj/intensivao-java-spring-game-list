@@ -1,5 +1,6 @@
 package com.djinfo.controllers;
 
+import com.djinfo.dto.GameDTO;
 import com.djinfo.dto.GameMinDTO;
 import com.djinfo.services.GameService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,13 +18,13 @@ public class GameController {
   public GameController(GameService gameService) {
     this.gameService = gameService;
   }
-
+  @GetMapping(value = "/{id}")
+  public GameDTO findById(@PathVariable(value = "id") Long id){
+    return gameService.findById(id);
+  }
   @GetMapping
   public List<GameMinDTO> getGames(){
     return gameService.findAll();
   }
-  @GetMapping(value = "/{id}")
-  public GameMinDTO getGame(@PathVariable(value = "id") Long id){
-    return gameService.find(id);
-  }
+
 }

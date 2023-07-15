@@ -17,8 +17,10 @@ public class GameDTO {
   public GameDTO() {
   }
   public GameDTO(Game gameEntity){
-    /*Usual para copiar objetos com muitos atributos.
-    (Necessário o target possuir get/set de todos campos e)
+    /*
+    - Usual para copiar objetos com muitos atributos.
+    - Necessário o target possuir get/set de todos campos.
+    - Todos os campos devem possuir os mesmos nomes na source.
      */
     BeanUtils.copyProperties(gameEntity, this);
   }
