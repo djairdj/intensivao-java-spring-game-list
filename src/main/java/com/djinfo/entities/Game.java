@@ -2,8 +2,6 @@ package com.djinfo.entities;
 
 import jakarta.persistence.*;
 
-import java.util.Objects;
-
 @Entity
 @Table(name = "tb_game")
 public class Game {
@@ -17,14 +15,16 @@ public class Game {
   private String platforms;
   private Double score;
   private String imgUrl;
-  @Column()
+  @Column(columnDefinition = "TEXT")
   private String shortDescription;
+  @Column(columnDefinition = "TEXT")
   private String longDescription;
 
   public Game() {
   }
 
-  public Game(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl, String shortDescription, String longDescription) {
+  public Game(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl,
+              String shortDescription, String longDescription) {
     this.id = id;
     this.title = title;
     this.year = year;
@@ -112,11 +112,11 @@ public class Game {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (!(o instanceof Game game)) return false;
-    return Objects.equals(id, game.id);
+    return getId().equals(game.getId());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return getId().hashCode();
   }
 }
