@@ -1,6 +1,7 @@
 package com.djinfo.dto;
 
 import com.djinfo.entities.Game;
+import com.djinfo.projections.GameMinProjection;
 
 public class GameMinDTO {
   private Long id;
@@ -16,6 +17,13 @@ public class GameMinDTO {
     this.year= gameEntity.getYear();
     this.imgUrl = gameEntity.getImgUrl();
     this.shortDescription = gameEntity.getShortDescription();
+  }
+  public GameMinDTO(GameMinProjection gameMinProjectionEntity){
+    this.id = gameMinProjectionEntity.getId();
+    this.title = gameMinProjectionEntity.getTitle();
+    this.year= gameMinProjectionEntity.getYear();
+    this.imgUrl = gameMinProjectionEntity.getImgUrl();
+    this.shortDescription = gameMinProjectionEntity.getShortDescription();
   }
 
   public Long getId() {
